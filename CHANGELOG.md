@@ -1,5 +1,12 @@
 # Changelog
 
+## [21.0.1](https://github.com/ngx-multi-sort/ngx-multi-sort-table/compare/v21.0.0...v21.0.1) (2026-02-04)
+
+
+### Bug Fixes
+
+* update deps for security reasons ([#270](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/270)) ([fe11d40](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/fe11d40bccd325f70d67b58cabb1d6b82ab57847))
+
 ## [21.0.0](https://github.com/Maxl94/ngx-multi-sort-table/compare/v20.1.0...v21.0.0) (2026-01-22)
 
 
