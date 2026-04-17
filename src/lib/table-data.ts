@@ -1,8 +1,8 @@
-import { Subject, BehaviorSubject, delay, filter, tap } from 'rxjs';
-import { MatMultiSortTableDataSource } from './mat-multi-sort-data-source';
-import { SortDirection } from '@angular/material/sort';
-import { Settings } from './utils';
-import { PageEvent } from '@angular/material/paginator';
+import {BehaviorSubject, delay, filter, Subject, tap} from 'rxjs';
+import {MatMultiSortTableDataSource} from './mat-multi-sort-data-source';
+import {SortDirection} from '@angular/material/sort';
+import {Settings} from './utils';
+import {PageEvent} from '@angular/material/paginator';
 
 export class TableData<T> {
     private _dataSource!: MatMultiSortTableDataSource<T>;
@@ -120,15 +120,22 @@ export class TableData<T> {
         if (this._key) {
             const settings = new Settings(this._key);
             settings.load();
-            if (this._isLocalStorageSettingsValid(settings)) {
+            if (settings.columns.length > 0) {
                 // load column configuration from localstorage and update the name
-                this.columns = settings.columns.map(storedColumn => {
-                  return {...storedColumn, name: this.columns.find(column => column.id === storedColumn.id)?.name ?? storedColumn.name};
+                this.columns = this.columns.map(column => {
+                  const storedColumn = settings.columns.find(storedCol => storedCol.id === column.id);
+                  if (!storedColumn) return column;
+                  return {...storedColumn, name: column.name ?? storedColumn.name};
                 });
-                this._sortDirs = settings.sortDirs;
-                this._sortParams = settings.sortParams;
-            } else {
-                console.warn("Stored tableSettings are invalid. Using default");
+
+                this._sortDirs = [];
+                this._sortParams = [];
+                for(const [index, storedSortParam] of settings.sortParams.entries()) {
+                  if(this.columns.some(col => col.id === storedSortParam)) {
+                    this._sortParams.push(storedSortParam);
+                    this._sortDirs.push(settings.sortDirs[index]);
+                  }
+                }
             }
         }
         this.displayedColumns = this.columns.filter(c => c.isActive).map(c => c.id);
@@ -136,22 +143,6 @@ export class TableData<T> {
 
     private _clientSideSort() {
         this._dataSource.orderData();
-    }
-
-    private _isLocalStorageSettingsValid(settings: Settings): boolean {
-        // check if number of columns matching
-        if (settings.columns.length !== this._columns.value.length) {
-            return false;
-        }
-
-        // check if columns are the same
-        for (const column of settings.columns) {
-            const match = this._columns.value.find(c => c.id === column.id);
-            if (match === undefined) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public storeTableSettings(): void {
