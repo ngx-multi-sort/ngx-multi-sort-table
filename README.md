@@ -105,3 +105,17 @@ The most important prefixes you should have in mind are:
 - `feat:` which represents a new feature, and correlates to a SemVer minor.
 - `feat!:`, or `fix!:`, `refactor!:`, etc., which represent a breaking change
   (indicated by the `!`) and will result in a SemVer major.
+
+### Local Development
+
+You can integrate the library directly into your project by cloning the repository and running `npm install` and `ng build mat-multi-sort`.
+
+Then change into the `dist/mat-multi-sort` directory and run `npm pack`.
+
+In your project package.json update the dependency:
+
+```
+"ngx-mat-multi-sort": "file:../ngx-multi-sort-table/dist/mat-multi-sort/ngx-mat-multi-sort-X.X.X.tgz",
+```
+
+Set the version to the version you built.
