@@ -1,5 +1,67 @@
 # Changelog
 
+## [22.0.0](https://github.com/ngx-multi-sort/ngx-multi-sort-table/compare/v21.0.1...v22.0.0) (2026-04-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update to Angular 21
+* update Angular dependencies to version 20 and adjust module resolution settings ([#232](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/232))
+* Upgrade to Angular 19 and Material 19
+* Upgrade to Angular 18 and Material 18 ([#197](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/197))
+* removing init console log, that serves no purpose in a production release
+* More type cleanup to enable tsconfig strict=true
+* moving tsconfig to strict since this is the default in angular projects
+* migration angular material components and styles to newer offerings in angular 17
+* updates to angular 16 ([#123](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/123))
+
+### Features
+
+* add missing Angular animations module and improve localStorage handling ([#224](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/224)) ([87f80b1](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/87f80b11d15c97b31683dd27549709922da70a38))
+* add option to disable sort indicators in multi-sort table settings ([#227](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/227)) ([2c03735](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/2c03735e0811eb884fc119ce3b1521850c69064f))
+* moving tsconfig to strict since this is the default in angular projects ([f4683d1](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/f4683d1c1faf7b1a6cc3afed9311d0303271aee2))
+* Refactor components to use inject-method and update deps ([#236](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/236)) ([b832c07](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/b832c07a59a4a1938aafeed7d08d558d3f762aa1))
+* Update to Angular 21 ([64ffd71](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/64ffd71e13d30106d932af8494aab526eb2dc15b))
+* updates to angular 16 ([#123](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/123)) ([03a9b53](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/03a9b531d0c17c9dbb9c66c233528925a359459b))
+* Upgrade to Angular 18 and Material 18 ([#197](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/197)) ([0c85639](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/0c856394359812bc50398830fb65bb01237d33c6))
+* Upgrade to Angular 19 and Material 19 ([dbd30b9](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/dbd30b94d56a584249a25135d0de4e054f050dd5))
+* use only 6 dots icon as a drag handle for table menu ([9aba71e](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/9aba71ebb74307b39bbeedb0a7e686758a21153e))
+
+
+### Bug Fixes
+
+* **ci:** adds release manifest ([f1a4b75](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/f1a4b759f0b9e83ee533577496c419b4997c84f2))
+* **ci:** adds release please config ([#138](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/138)) ([ac11840](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/ac118406283f12983c11e85a3665ea0b528bad87))
+* **ci:** removes static version ([d08dfdc](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/d08dfdc8586e33b63238cbeba29170fd23e6f4a5))
+* **ci:** set correct package name for build ([2f8c793](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/2f8c79323f83ebfb6bd3f22c7863ed731b081f0d))
+* **ci:** test run ([c434e9e](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/c434e9e89f30013ee9b3e437ea4240c77e0493ca))
+* **ci:** updates manifest ([6a6f39f](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/6a6f39fc65df482f85119abeec19192f689e637c))
+* **ci:** updates path ([1bc89eb](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/1bc89eb30c777f1d04532b51076a2cf39fc06b32))
+* **deps:** corrects dependency version for material and cdk ([#155](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/155)) ([2778962](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/27789621cd77718cddb39e9d8a04c49de2b7c922))
+* **docs:** updates readme ([e02540b](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/e02540b144c3a890113c6203b727d5475d021514))
+* handle update sorting and cancel events correctly ([#228](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/228)) ([7a23235](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/7a23235dc5e268f204e1b70ece885a5020ac2b80))
+* make MatMultiSortTableSettingsComponent generic for improved type safety ([#229](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/229)) ([2f35469](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/2f35469e15cef3403e4ef07aad11ce9fa6c553fd))
+* next observable not fired on page index 0 ([#182](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/182)) ([70c3311](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/70c33114d6e9385c9633ceb1185dd2a1a52bfb39))
+* **readme,app.component:** minor lang tweaks and remove setTimeout ([ce80215](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/ce80215fbf5717db6d6d5a1bd72adc1c060e561b))
+* Refactor load of stored table settings ([#274](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/274)) ([8452ec2](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/8452ec2a397e65d0bd4158a26085f2bc2632b10c))
+* remove HostListener from _handleClick; fixes [#27](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/27) ([56099ee](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/56099ee679e1a7e2d4e87af53cdd99221bd229a8))
+* sync sort.direction with current header sort direction ([74b97ba](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/74b97ba00fc516e66c09f899dd1336b6db3ed949))
+* table not loading when sort params are provided ([#194](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/194)) ([fc07c11](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/fc07c111322ee58de0dcabbffd92db830a32010e))
+* **TableData:** bug 79 correction ([dd26bc8](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/dd26bc848627a9bd6d2cbffb9bd37e28b2181125))
+* trigger release ([36b3b84](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/36b3b84c1a5bb5d927d12fdeffcb76fa21017b9e))
+* Update column names on initialization ([#215](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/215)) ([586b679](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/586b6795c48958937fef8bdcfce89f75be81ae7a))
+* update deps for security reasons ([#270](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/270)) ([fe11d40](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/fe11d40bccd325f70d67b58cabb1d6b82ab57847))
+* updates docs, test release please (171) ([8a74311](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/8a7431159d7dde56f340cbd04c5f8becbd840397))
+* visibility of displayed columns after loading settings from local storage ([#192](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/192)) ([fff269e](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/fff269ea46adee41705e8236a060d9f68b3cdd79))
+
+
+### Miscellaneous Chores
+
+* migration angular material components and styles to newer offerings in angular 17 ([f4683d1](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/f4683d1c1faf7b1a6cc3afed9311d0303271aee2))
+* More type cleanup to enable tsconfig strict=true ([912aab0](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/912aab0673b0881b2dbeadb9c2913270596d8ce6))
+* removing init console log, that serves no purpose in a production release ([44bb1d9](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/44bb1d925a6b962636a7d6cebaa8a6d95325e6c2))
+* update Angular dependencies to version 20 and adjust module resolution settings ([#232](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/232)) ([65fce7d](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/65fce7d32918d23b91d3f723d20f06ca520ceb10))
+
 ## [21.0.1](https://github.com/ngx-multi-sort/ngx-multi-sort-table/compare/v21.0.0...v21.0.1) (2026-02-04)
 
 
