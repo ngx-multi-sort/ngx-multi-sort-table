@@ -1,5 +1,12 @@
 # Changelog
 
+## [21.0.2](https://github.com/ngx-multi-sort/ngx-multi-sort-table/compare/v21.0.1...v21.0.2) (2026-04-21)
+
+
+### Bug Fixes
+
+* Refactor load of stored table settings ([#274](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/274)) ([8452ec2](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/8452ec2a397e65d0bd4158a26085f2bc2632b10c))
+
 ## [21.0.1](https://github.com/ngx-multi-sort/ngx-multi-sort-table/compare/v21.0.0...v21.0.1) (2026-02-04)
 
 
