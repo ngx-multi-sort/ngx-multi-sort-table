@@ -1,5 +1,12 @@
 # Changelog
 
+## [21.0.3](https://github.com/ngx-multi-sort/ngx-multi-sort-table/compare/v21.0.2...v21.0.3) (2026-05-29)
+
+
+### Bug Fixes
+
+* Apply column order based on settings ([#282](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/282)) ([ebd3137](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/ebd3137401ad4e54550a0455e7946d76d1f6c935))
+
 ## [21.0.2](https://github.com/ngx-multi-sort/ngx-multi-sort-table/compare/v21.0.1...v21.0.2) (2026-04-21)
 
 
