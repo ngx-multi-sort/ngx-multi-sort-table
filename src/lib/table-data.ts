@@ -128,6 +128,9 @@ export class TableData<T> {
                   return {...storedColumn, name: column.name ?? storedColumn.name};
                 });
 
+                // apply sort order from settings
+                this.columns = this.orderColumnsBySettings(this.columns, settings);
+
                 this._sortDirs = [];
                 this._sortParams = [];
                 for(const [index, storedSortParam] of settings.sortParams.entries()) {
@@ -139,6 +142,36 @@ export class TableData<T> {
             }
         }
         this.displayedColumns = this.columns.filter(c => c.isActive).map(c => c.id);
+    }
+
+    private orderColumnsBySettings(
+      currentColumns: {id: string, name: string, isActive?: boolean}[],
+      settings: Settings) {
+      const settingsColumnIds = settings.columns.map(column => column.id);
+
+      // Get all columns in their settings order, but only if they still exist in the current columns.
+      const knownColumnsInSettingsOrder = settings.columns
+        .map(storedColumn => currentColumns.find(column => column.id === storedColumn.id))
+        .filter((column): column is { id: string; name: string; isActive?: boolean } => column !== undefined);
+
+      // Keep new columns that are not in the settings, at their current position.
+      const result: { id: string; name: string; isActive?: boolean }[] = [];
+      let knownIndex = 0;
+
+      for (const currentColumn of currentColumns) {
+        if (settingsColumnIds.includes(currentColumn.id)) {
+          const nextKnownColumn = knownColumnsInSettingsOrder[knownIndex];
+
+          if (nextKnownColumn) {
+            result.push(nextKnownColumn);
+            knownIndex++;
+          }
+        } else {
+          result.push(currentColumn);
+        }
+      }
+
+      return result;
     }
 
     private _clientSideSort() {
