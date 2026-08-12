@@ -1,15 +1,6 @@
-import {
-  Component,
-  Input,
-  ChangeDetectorRef,
-  ViewEncapsulation,
-  ElementRef,
-  inject,
-  InjectionToken
-} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, InjectionToken, Input, ViewEncapsulation} from '@angular/core';
 import {MatSort, MatSortHeader, MatSortHeaderIntl} from '@angular/material/sort';
-import { MatMultiSort } from '../mat-multi-sort.directive';
-import { FocusMonitor } from '@angular/cdk/a11y';
+import {MatMultiSort} from '../mat-multi-sort.directive';
 
 
 /** Column definition associated with a `MatSortHeader`. */
@@ -18,13 +9,16 @@ interface C2MatSortHeaderColumnDef {
 }
 
 @Component({
-// eslint-disable-next-line @angular-eslint/component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[mat-multi-sort-header]',
   exportAs: 'matMultiSortHeader',
   templateUrl: './mat-multi-sort-header.component.html',
   styleUrls: ['./mat-multi-sort-header.component.scss'],
   encapsulation: ViewEncapsulation.None,
   imports: [],
+  // TODO: change to OnPush
+  // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [{provide: MatSort, useExisting: MatMultiSort}],
 })
 export class MatMultiSortHeaderComponent extends MatSortHeader {
@@ -37,13 +31,10 @@ export class MatMultiSortHeaderComponent extends MatSortHeader {
 
   constructor() {
     const _intl = inject(MatSortHeaderIntl);
-    const changeDetectorRef = inject(ChangeDetectorRef);
     const _sort = inject(MatMultiSort, { optional: true });
     const _columnDef = inject<C2MatSortHeaderColumnDef>(new InjectionToken('C2_SORT_HEADER_COLUMN_DEF'), { optional: true });
-    const _focusMonitor = inject(FocusMonitor);
-    const _elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
 
-    super(_intl, changeDetectorRef, _sort, _columnDef, _focusMonitor, _elementRef);
+    super();
 
     this._intl = _intl;
     if(_sort) this._mySort = _sort;

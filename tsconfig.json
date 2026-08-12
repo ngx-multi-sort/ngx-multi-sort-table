@@ -2,7 +2,6 @@
   "compileOnSave": false,
   "compilerOptions": {
     "rootDir": "/",
-    "baseUrl": "./",
     "esModuleInterop": true,
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
@@ -21,10 +20,10 @@
     ],
     "paths": {
       "mat-multi-sort": [
-        "dist/mat-multi-sort"
+        "./dist/mat-multi-sort"
       ],
       "mat-multi-sort/*": [
-        "dist/mat-multi-sort/*"
+        "./dist/mat-multi-sort/*"
       ]
     },
     "useDefineForClassFields": false

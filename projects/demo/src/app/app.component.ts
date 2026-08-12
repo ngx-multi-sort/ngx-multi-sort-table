@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, ViewChild, inject, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit, ViewChild} from '@angular/core';
 import {
   MatMultiSort,
   MatMultiSortHeaderComponent,
@@ -19,7 +19,10 @@ import {
   MatColumnDef,
   MatHeaderCell,
   MatHeaderCellDef,
-  MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef,
+  MatHeaderRow,
+  MatHeaderRowDef,
+  MatRow,
+  MatRowDef,
   MatTable
 } from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
@@ -51,6 +54,8 @@ class UserData {
     MatRowDef,
     MatPaginator
 ],
+  // TODO: change to OnPush
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
