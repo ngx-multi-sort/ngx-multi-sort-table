@@ -1,5 +1,16 @@
 # Changelog
 
+## [22.0.0](https://github.com/ngx-multi-sort/ngx-multi-sort-table/compare/v21.0.3...v22.0.0) (2026-08-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* Upgrade to Angular 22 ([#284](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/284))
+
+### Features
+
+* Upgrade to Angular 22 ([#284](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/284)) ([036cbdd](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/036cbdd25be9ac031a58abf4855f96828ac91a08))
+
 ## [21.0.3](https://github.com/ngx-multi-sort/ngx-multi-sort-table/compare/v21.0.2...v21.0.3) (2026-05-29)
 
 
