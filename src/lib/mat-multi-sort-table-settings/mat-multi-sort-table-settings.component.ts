@@ -1,11 +1,22 @@
-import { Component, ContentChild, ElementRef, Input, OnInit, TemplateRef, ViewChild, ViewContainerRef, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ContentChild,
+  ElementRef,
+  inject,
+  Input,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef
+} from '@angular/core';
 import {CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList, moveItemInArray} from '@angular/cdk/drag-drop';
-import { TableData } from '../table-data';
+import {TableData} from '../table-data';
 import {BlockScrollStrategy, Overlay, OverlayRef, ScrollStrategy, ViewportRuler} from '@angular/cdk/overlay';
 import {TemplatePortal} from '@angular/cdk/portal';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipRow, MatChipSet} from '@angular/material/chips';
-import { NgTemplateOutlet } from '@angular/common';
+import {NgTemplateOutlet} from '@angular/common';
 import {MatTooltip} from '@angular/material/tooltip';
 import {MatIcon} from '@angular/material/icon';
 import {FormsModule} from '@angular/forms';
@@ -13,9 +24,12 @@ import {FormsModule} from '@angular/forms';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-    selector: 'mat-multi-sort-table-settings',
-    templateUrl: './mat-multi-sort-table-settings.component.html',
-    styleUrls: ['./mat-multi-sort-table-settings.component.scss'],
+  selector: 'mat-multi-sort-table-settings',
+  templateUrl: './mat-multi-sort-table-settings.component.html',
+  styleUrls: ['./mat-multi-sort-table-settings.component.scss'],
+  // TODO: change to OnPush
+  // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [MatCheckboxModule, CdkDropList, NgTemplateOutlet, MatTooltip, MatIcon, CdkDrag, CdkDragHandle, FormsModule, MatChipSet, MatChipRow]
 })
 export class MatMultiSortTableSettingsComponent<T> implements OnInit {
