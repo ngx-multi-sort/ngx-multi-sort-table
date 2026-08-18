@@ -1,5 +1,30 @@
 # Changelog
 
+## [22.0.0](https://github.com/ngx-multi-sort/ngx-multi-sort-table/compare/v21.0.3...v22.0.0) (2026-08-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* Upgrade to Angular 22 ([#284](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/284))
+
+### Features
+
+* Upgrade to Angular 22 ([#284](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/284)) ([036cbdd](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/036cbdd25be9ac031a58abf4855f96828ac91a08))
+
+## [21.0.3](https://github.com/ngx-multi-sort/ngx-multi-sort-table/compare/v21.0.2...v21.0.3) (2026-05-29)
+
+
+### Bug Fixes
+
+* Apply column order based on settings ([#282](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/282)) ([ebd3137](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/ebd3137401ad4e54550a0455e7946d76d1f6c935))
+
+## [21.0.2](https://github.com/ngx-multi-sort/ngx-multi-sort-table/compare/v21.0.1...v21.0.2) (2026-04-21)
+
+
+### Bug Fixes
+
+* Refactor load of stored table settings ([#274](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/274)) ([8452ec2](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/8452ec2a397e65d0bd4158a26085f2bc2632b10c))
+
 ## [21.0.1](https://github.com/ngx-multi-sort/ngx-multi-sort-table/compare/v21.0.0...v21.0.1) (2026-02-04)
 
 

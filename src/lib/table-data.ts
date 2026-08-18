@@ -1,8 +1,8 @@
-import { Subject, BehaviorSubject, delay, filter, tap } from 'rxjs';
-import { MatMultiSortTableDataSource } from './mat-multi-sort-data-source';
-import { SortDirection } from '@angular/material/sort';
-import { Settings } from './utils';
-import { PageEvent } from '@angular/material/paginator';
+import {BehaviorSubject, delay, filter, Subject, tap} from 'rxjs';
+import {MatMultiSortTableDataSource} from './mat-multi-sort-data-source';
+import {SortDirection} from '@angular/material/sort';
+import {Settings} from './utils';
+import {PageEvent} from '@angular/material/paginator';
 
 export class TableData<T> {
     private _dataSource!: MatMultiSortTableDataSource<T>;
@@ -120,38 +120,62 @@ export class TableData<T> {
         if (this._key) {
             const settings = new Settings(this._key);
             settings.load();
-            if (this._isLocalStorageSettingsValid(settings)) {
+            if (settings.columns.length > 0) {
                 // load column configuration from localstorage and update the name
-                this.columns = settings.columns.map(storedColumn => {
-                  return {...storedColumn, name: this.columns.find(column => column.id === storedColumn.id)?.name ?? storedColumn.name};
+                this.columns = this.columns.map(column => {
+                  const storedColumn = settings.columns.find(storedCol => storedCol.id === column.id);
+                  if (!storedColumn) return column;
+                  return {...storedColumn, name: column.name ?? storedColumn.name};
                 });
-                this._sortDirs = settings.sortDirs;
-                this._sortParams = settings.sortParams;
-            } else {
-                console.warn("Stored tableSettings are invalid. Using default");
+
+                // apply sort order from settings
+                this.columns = this.orderColumnsBySettings(this.columns, settings);
+
+                this._sortDirs = [];
+                this._sortParams = [];
+                for(const [index, storedSortParam] of settings.sortParams.entries()) {
+                  if(this.columns.some(col => col.id === storedSortParam)) {
+                    this._sortParams.push(storedSortParam);
+                    this._sortDirs.push(settings.sortDirs[index]);
+                  }
+                }
             }
         }
         this.displayedColumns = this.columns.filter(c => c.isActive).map(c => c.id);
     }
 
-    private _clientSideSort() {
-        this._dataSource.orderData();
+    private orderColumnsBySettings(
+      currentColumns: {id: string, name: string, isActive?: boolean}[],
+      settings: Settings) {
+      const settingsColumnIds = settings.columns.map(column => column.id);
+
+      // Get all columns in their settings order, but only if they still exist in the current columns.
+      const knownColumnsInSettingsOrder = settings.columns
+        .map(storedColumn => currentColumns.find(column => column.id === storedColumn.id))
+        .filter((column): column is { id: string; name: string; isActive?: boolean } => column !== undefined);
+
+      // Keep new columns that are not in the settings, at their current position.
+      const result: { id: string; name: string; isActive?: boolean }[] = [];
+      let knownIndex = 0;
+
+      for (const currentColumn of currentColumns) {
+        if (settingsColumnIds.includes(currentColumn.id)) {
+          const nextKnownColumn = knownColumnsInSettingsOrder[knownIndex];
+
+          if (nextKnownColumn) {
+            result.push(nextKnownColumn);
+            knownIndex++;
+          }
+        } else {
+          result.push(currentColumn);
+        }
+      }
+
+      return result;
     }
 
-    private _isLocalStorageSettingsValid(settings: Settings): boolean {
-        // check if number of columns matching
-        if (settings.columns.length !== this._columns.value.length) {
-            return false;
-        }
-
-        // check if columns are the same
-        for (const column of settings.columns) {
-            const match = this._columns.value.find(c => c.id === column.id);
-            if (match === undefined) {
-                return false;
-            }
-        }
-        return true;
+    private _clientSideSort() {
+        this._dataSource.orderData();
     }
 
     public storeTableSettings(): void {
