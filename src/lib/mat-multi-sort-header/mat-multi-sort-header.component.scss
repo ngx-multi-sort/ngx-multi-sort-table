@@ -1,20 +1,20 @@
-.mat-sort-header-container {
+.mat-multi-sort-header-container {
     display: flex;
     cursor: pointer;
     align-items: center;
   }
-  .mat-sort-header-disabled .mat-sort-header-container {
+  .mat-sort-header-disabled .mat-multi-sort-header-container {
     cursor: default;
   }
-  .mat-sort-header-position-before {
+  .mat-multi-sort-header-position-before {
     flex-direction: row-reverse;
   }
-  .mat-sort-header-content {
+  .mat-multi-sort-header-content {
     text-align: center;
     display: flex;
     align-items: center;
   }
-  .mat-sort-header-arrow {
+  .mat-multi-sort-header-arrow {
     height: 12px;
     width: 12px;
     min-width: 12px;
@@ -38,9 +38,9 @@
       }
     }
   }
-  .mat-sort-header-arrow, [dir='rtl'] .mat-sort-header-position-before .mat-sort-header-arrow {
+  .mat-multi-sort-header-arrow, [dir='rtl'] .mat-multi-sort-header-position-before .mat-multi-sort-header-arrow {
     margin: 0 0 0 6px;
   }
-  .mat-sort-header-position-before .mat-sort-header-arrow, [dir='rtl'] .mat-sort-header-arrow {
+  .mat-multi-sort-header-position-before .mat-multi-sort-header-arrow, [dir='rtl'] .mat-multi-sort-header-arrow {
     margin: 0 6px 0 0;
   }
