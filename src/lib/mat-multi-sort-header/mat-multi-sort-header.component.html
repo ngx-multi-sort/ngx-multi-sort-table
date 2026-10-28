@@ -1,14 +1,14 @@
-<div class="mat-sort-header-container"
-  [class.mat-sort-header-sorted]="_isSorted()"
-  [class.mat-sort-header-position-before]="arrowPosition === 'before'"
-  [class.mat-sort-header-ascending]="getSortDirection() === 'asc'"
-  [class.mat-sort-header-deascending]="getSortDirection() === 'desc'">
+<div class="mat-multi-sort-header-container"
+  [class.mat-multi-sort-header-sorted]="_isSorted()"
+  [class.mat-multi-sort-header-position-before]="arrowPosition === 'before'"
+  [class.mat-multi-sort-header-ascending]="getSortDirection() === 'asc'"
+  [class.mat-multi-sort-header-deascending]="getSortDirection() === 'desc'">
 
-  <div class="mat-sort-header-content">
+  <div class="mat-multi-sort-header-content">
     <ng-content></ng-content>
   </div>
   @if (_renderArrow() && _isSorted()) {
-    <div class="mat-sort-header-arrow"
+    <div class="mat-multi-sort-header-arrow"
          animate.enter="opacity: 1; transform: translateY(0)"
          animate.leave="opacity: 0; transform: translateY(-25%)">
       <svg [class.asc]="getSortDirection() === 'asc'"
