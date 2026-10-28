@@ -1,5 +1,12 @@
 # Changelog
 
+## [22.0.2](https://github.com/ngx-multi-sort/ngx-multi-sort-table/compare/v22.0.1...v22.0.2) (2026-10-28)
+
+
+### Bug Fixes
+
+* avoid clash with mat-sort-header directive ([#291](https://github.com/ngx-multi-sort/ngx-multi-sort-table/issues/291)) ([996cd88](https://github.com/ngx-multi-sort/ngx-multi-sort-table/commit/996cd88c4666af39d0d715ddffaaa00d58aaaa33))
+
 ## [22.0.1](https://github.com/ngx-multi-sort/ngx-multi-sort-table/compare/v22.0.0...v22.0.1) (2026-09-08)
 
 
